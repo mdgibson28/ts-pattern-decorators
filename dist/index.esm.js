@@ -1,0 +1,2 @@
+function e(e){return function(n,r){var t="_"+r;Object.defineProperty(n,t,{enumerable:!1,configurable:!0,writable:!0}),Object.defineProperty(n,r,{enumerable:!0,get:function(){return this[t]},set:function(n){!function(e,n,r,t){Array.isArray(t)&&t.length>0&&!(t[0]instanceof e)?n[r]=t.map((function(n){var r=new e;return Object.assign(r,n),r})):Array.isArray(t)||t instanceof e?n[r]=t:n[r]=new e(t)}(e,this,t,n)}})}}export{e as JsonBuilder};
+//# sourceMappingURL=index.esm.js.map
