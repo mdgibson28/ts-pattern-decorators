@@ -24,22 +24,53 @@ The decorator detects if it should build an array of instances or single instanc
 
 The decorator uses Object.assign() to map json properties to the class instance.
 
+The decorator adds a private property to the hosting class using the _key pattern.
+
 ```typescript
+/* A class that will be instantiated when the property using @JsonBuilder is set */
 class MyClass {
     public name:string;
     public age:number;
 }
 
+/* A class using the builder for a single instance */
 class MyTestClass {
     @JsonBuilder(MyClass) 
     public myProperty:MyClass;
 }
 
+/* A class using the builder for an array of instances */
 class MyTestClassWithArray {
     @JsonBuilder(MyClass) 
     public myProperty:MyClass[];
 }
 ```
+
+### Observable
+
+Turns a property in a subscribable object of type Observer.
+
+```typescript
+class Test {
+    @Observable<string>
+    public observer: Observer<string>;
+}
+
+const test = new Test();
+
+const subscription: Subscription = test.observer.subscribe((val:string) => {       // watch for changes
+    ...
+});
+
+test.observer.next('my new val');       // update current value and notify
+
+test.observer.current();                // get current value
+
+test.observer.previous();               // get most recent previous value
+
+subscription.unsubscribe();             // unsubscribe from change notification
+```
+
 
 ## Develop
 
