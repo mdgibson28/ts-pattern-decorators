@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "declaration": true,
+      "noImplicitAny": false,
+      "module": "es6",
+      "target": "es5",
+      "allowJs": true,
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "declarationDir": "dist",
+    },
+    "files": [
+      "src/index.ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "rootDirs": [
+      "src/"
+    ]
+  }
+  
