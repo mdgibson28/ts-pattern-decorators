@@ -1,1 +1,1 @@
-export * from './JsonBuilder';;
+export * from './JsonBuilder';
