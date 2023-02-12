@@ -7,7 +7,6 @@ A start project for building libraries in Typescript.
 - Unit testing with Jest
 - Documentation generation with Typedoc
 
-
 ## Install
 
 ```node
