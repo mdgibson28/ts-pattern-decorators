@@ -10,7 +10,7 @@ type ObjectConstructor = new (...args: unknown[]) => unknown;
  * @param pKey The name of the property to set.
  * @param val The value to set on the target object.
  */
-function setValue(buildClass:ObjectConstructor, target:any, pKey:string, val:any):void {
+function setValue(buildClass:ObjectConstructor, target:unknown, pKey:string, val:unknown):void {
     if(Array.isArray(val) && val.length > 0 && !(val[0] instanceof buildClass)) {
         target[pKey] = val.map((item) => {
             const instance = new buildClass();
