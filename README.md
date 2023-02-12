@@ -58,7 +58,8 @@ class Test {
 
 const test = new Test();
 
-const subscription: Subscription = test.observer.subscribe((val:string) => {       // watch for changes
+// watch for changes
+const subscription: Subscription = test.observer.subscribe((val:string) => {
     ...
 });
 
