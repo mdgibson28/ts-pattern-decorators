@@ -65,5 +65,8 @@
   "bugs": {
     "url": "https://github.com/mdgibson28/ts-pattern-decorators/issues"
   },
-  "homepage": "https://github.com/mdgibson28/ts-pattern-decorators/issues#readme"
+  "homepage": "https://github.com/mdgibson28/ts-pattern-decorators/issues#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
 }

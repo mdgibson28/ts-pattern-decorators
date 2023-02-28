@@ -13,11 +13,12 @@ module.exports = {
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
     },
     "plugins": [
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/ban-types": "warn"
     }
 }

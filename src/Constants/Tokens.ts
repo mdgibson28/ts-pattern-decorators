@@ -1,0 +1,2 @@
+export const MODULE_TOKEN = '__TOKEN:MODULE__';
+export const INJECTABLE_TOKEN = '__TOKEN:INJECTABLE__';
