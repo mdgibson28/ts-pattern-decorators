@@ -1,6 +1,6 @@
 {
   "name": "ts-pattern-decorators",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Software design patterns implemented with Typescript decorators",
   "keywords": [
     "typescript",
