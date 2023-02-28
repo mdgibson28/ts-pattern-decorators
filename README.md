@@ -45,7 +45,7 @@ class MyTestClassWithArray {
 }
 ```
 
-### Observable
+### @Observable
 
 Turns a property in a subscribable object of type Observer.
 
