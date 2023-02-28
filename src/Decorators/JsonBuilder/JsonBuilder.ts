@@ -17,7 +17,7 @@ function setValue(buildClass:ObjectConstructor, target:unknown, pKey:string, val
             Object.assign(instance, item);
             return instance;
         });
-    } else if(!Array.isArray(val) && !(val instanceof buildClass)) {
+    } else if(!Array.isArray(val) && val && typeof(val) === 'object' && !(val instanceof buildClass)) {
         target[pKey] = new buildClass();
         Object.assign(target[pKey], val);
     } else {
