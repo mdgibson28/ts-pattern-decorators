@@ -41,8 +41,7 @@
   "scripts": {
     "bundle": "rollup -c",
     "bundle:pre": "npm run test:silent && npm run clean",
-    "bundle:post": "npm run docs",
-    "build": "npm run bundle:pre && npm run bundle && npm run bundle:post",
+    "build": "npm run bundle:pre && npm run bundle",
     "clean": "rimraf dist && rimraf docs",
     "docs": "npx typedoc src/index.ts",
     "test": "npm run test:lint && npm run test:unit",
@@ -51,13 +50,11 @@
     "test:unit:silent": "jest --silent --no-coverage --bail",
     "test:lint": "eslint ./src/index.ts",
     "test:lint:silent": "eslint ./src/index.ts --quiet",
-    "publish": "npm publish",
-    "publish:public": "npm publish --access public",
-    "publish:patch": "npm run publish:pre && npm version patch && npm run publish && npm run publish:post",
-    "publish:minor": "npm run publish:pre && npm version minor && npm run publish && npm run publish:post",
-    "publish:major": "npm run publish:pre && npm version major && npm run publish && npm run publish:post",
-    "publish:pre": "npm run build",
-    "publish:post": "echo Congratulations! Your package has been published. The world is a better place."
+    "publish:finish": "npm publish && git push --tags",
+    "publish:patch": "npm run publish:pre && npm version patch && npm run publish:finish",
+    "publish:minor": "npm run publish:pre && npm version minor && npm run publish:finish",
+    "publish:major": "npm run publish:pre && npm version major && npm run publish:finish",
+    "publish:pre": "npm run build && npm run docs && git add docs/ && git commit -m \"docs: update docs\""
   },
   "repository": {
     "type": "git",
