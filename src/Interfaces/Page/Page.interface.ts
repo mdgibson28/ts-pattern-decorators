@@ -1,3 +1,3 @@
 import { Type } from "../Type.interface";
 
-export type StaticModule = Type;
+export type Page = Type<any>

@@ -1,20 +1,26 @@
-import { INJECTABLE_TOKEN, MODULE_TOKEN } from "../../Constants";
-import { Injectable, Module } from "../../Decorators";
+import { APPLICATION_TOKEN, INJECTABLE_TOKEN, INJECTION_TYPE_MODULE, INJECTION_TYPE_PROVIDER } from "../../Constants";
+import { Module, Provider } from "../../Decorators";
 import { useBootstrap } from "../Bootstrap";
 import 'reflect-metadata';
 
-
-class TestModule {
-  name = 'Test Module';
-}
-
-class TestProvider {
-  name = 'Test Provider';
-}
-
 describe('useBootstrap', () => {
-  it('should mount all providers to the module singletons', () => {
-    @Injectable()
+
+  it('should mount a module', () => {
+    @Module()
+    class TestModule {}
+
+    useBootstrap([TestModule]);
+
+    const moduleToken = Reflect.getMetadata(INJECTABLE_TOKEN, TestModule);
+    expect(moduleToken).toBe(INJECTION_TYPE_MODULE);
+
+    const module = globalThis[APPLICATION_TOKEN][INJECTION_TYPE_MODULE][TestModule];
+
+    expect(module instanceof TestModule).toBe(true);
+  });
+
+  it('should mount a module with a provider provider', () => {
+    @Provider()
     class TestProvider {}
 
     @Module({
@@ -24,10 +30,14 @@ describe('useBootstrap', () => {
 
     useBootstrap([TestModule]);
 
-    const moduleToken = MODULE_TOKEN + Reflect.getMetadata(MODULE_TOKEN, TestModule).name;
-    const module = globalThis[moduleToken];
-    const providerToken = INJECTABLE_TOKEN + Reflect.getMetadata(INJECTABLE_TOKEN, TestProvider).name;
-    const provider = module[providerToken];
+    const moduleToken = Reflect.getMetadata(INJECTABLE_TOKEN, TestModule);
+    expect(moduleToken).toBe(INJECTION_TYPE_MODULE);
+
+    const providerToken = Reflect.getMetadata(INJECTABLE_TOKEN, TestProvider);
+    expect(providerToken).toBe(INJECTION_TYPE_PROVIDER);
+
+    const module = globalThis[APPLICATION_TOKEN][INJECTION_TYPE_MODULE][TestModule];
+    const provider = module[INJECTION_TYPE_PROVIDER][TestProvider];
 
     expect(module instanceof TestModule).toBe(true);
     expect(provider instanceof TestProvider).toBe(true);

@@ -1,5 +1,5 @@
 import { Module } from "../Module";
-import { Injectable } from "../../Injectable";
+import { Provider } from "../../Provider";
 import "reflect-metadata";
 
 describe("Module", () => {
@@ -14,7 +14,7 @@ describe("Module", () => {
     });
 
     it("should define metadata with providers", () => {
-        @Injectable()
+        @Provider()
         class TestService {}
 
         @Module({

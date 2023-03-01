@@ -1,4 +1,4 @@
-import { InjectionToken } from "../Interfaces/Module/InjectionToken.interface";
+import { InjectionToken } from "../Interfaces/InjectionToken.interface";
 
 export function useInjection(token:InjectionToken):object {
     return {};

@@ -1,3 +1,3 @@
 import { Type } from "../Type.interface";
 
-export type InjectionToken = Type<any>;
+export type Module = Type<any>;
