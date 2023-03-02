@@ -1,29 +1,23 @@
-import {  APPLICATION_MODULES } from "../../Constants";
-import { InjectableMapper } from "../../Helpers/Injection";
+import { INJECTABLE_NAME } from "../../Constants";
+import { getMetadata } from "../../Helpers/Metadata/GetMetadata";
 import { AppMetadata } from "../../Interfaces/App/AppMetadata.interface";
 
 export function App(metadata: AppMetadata): ClassDecorator {
-    return (prototype: Function) => {
-        const proxy = new Proxy(prototype, {
-            construct(source: any, args: any[], target: any) {
-                const appInstance: any = Reflect.construct(
-                    source,
-                    args,
-                    target
-                );
-                
-                InjectableMapper.map(APPLICATION_MODULES, target, appInstance);
-
-                return appInstance;
-            },
-        });
-
+    return (prototype: Function):any => {
         for (const property in metadata) {
-            if (Object.prototype.hasOwnProperty.call(metadata, property)) {
-                Reflect.defineMetadata(property, metadata[property], prototype);
+            if (Object.prototype.hasOwnProperty.call(metadata, property) && !Array.isArray(metadata[property])) {
+                Reflect.defineMetadata(property,metadata[property],prototype);
+            } else if(Object.prototype.hasOwnProperty.call(metadata, property) && Array.isArray(metadata[property])) {
+                const map = {};
+                Reflect.defineMetadata(property, map, prototype);
+
+                for(const item of metadata[property]) {
+                    const key:string = getMetadata(INJECTABLE_NAME, item);
+                    map[key] = item;
+                }
             }
         }
 
-        return proxy;
+        return prototype;
     };
 }

@@ -1,4 +1,4 @@
-import { INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER } from "../../Constants";
+import { INJECTABLE_NAME, INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER } from "../../Constants";
 
 /**
  * Decorate that marks class as a Provider.
@@ -6,7 +6,12 @@ import { INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER } from "../../Constants";
  * @returns {ClassDecorator}
  */
 export function Provider(): ClassDecorator {
-    return (target: Function) => {
-        Reflect.defineMetadata(INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER, target);
+    return (prototype: Function) => {
+        Reflect.defineMetadata(
+            INJECTABLE_NAME,
+            prototype.name,
+            prototype
+        );
+        Reflect.defineMetadata(INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER, prototype);
     };
 }
