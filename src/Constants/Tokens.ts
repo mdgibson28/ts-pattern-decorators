@@ -1,4 +1,6 @@
 export const APPLICATION_TOKEN = "__TOKEN:APPLICATION__";
+export const APPLICATION_CLASS = "__TOKEN:APPLICATION_CLASS__";
+export const PROTOTYPE_TOKEN = "prototype";
 export const APPLICATION_MODULES = "modules";
 export const APPLICATION_SELECTOR = "selector";
 export const INJECTABLE_TOKEN = "__TOKEN:INJECTABLE__";

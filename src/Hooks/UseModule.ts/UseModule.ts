@@ -1,7 +1,7 @@
 import { setModule } from "../../Helpers/Metadata";
 import { getModule } from "../../Helpers/Metadata/GetMetadata";
-import { App } from "../../Interfaces/App/App.interface";
 import { Module } from "../../Interfaces/Module/Module.interface";
+import { useApp } from "../UseApp";
 
 /**
  * Returns an instance of a Module from an App.
@@ -12,13 +12,14 @@ import { Module } from "../../Interfaces/Module/Module.interface";
  * @param token 
  * @returns 
  */
-export function useModule(source:App|Module, token:Module) {
-    let value = getModule(source, token);
+export function useModule(token:Module) {
+    const {prototype} = useApp();
+    let value = getModule(prototype, token);
     if (value instanceof token) {
         return value;
     } else {
         value = new token();
-        setModule(source, token, value);
+        setModule(prototype, token, value);
         return value;
     }
 }

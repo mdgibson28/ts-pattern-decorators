@@ -15,7 +15,7 @@ describe("UseModule", () => {
 
         useApp(TestApp);
 
-        expect(useModule(TestApp, TestModule)).toBeInstanceOf(TestModule);
+        expect(useModule(TestModule)).toBeInstanceOf(TestModule);
     });
 
     it("should return the same module instance that was previously created", () => {
@@ -30,12 +30,12 @@ describe("UseModule", () => {
 
         useApp(TestApp);
 
-        const module = useModule(TestApp, TestModule);
+        const module = useModule(TestModule);
         module.test = "test";
 
         expect(module).toBeInstanceOf(TestModule);
 
-        const module2 = useModule(TestApp, TestModule);
+        const module2 = useModule(TestModule);
         expect(module2.test).toEqual(module.test);
     });
 });

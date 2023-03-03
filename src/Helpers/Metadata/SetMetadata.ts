@@ -1,7 +1,6 @@
 import "reflect-metadata";
-import { Type } from "../../Interfaces/Type.interface";
 import { Module } from "../../Interfaces/Module/Module.interface";
-import { APPLICATION_MODULES, INJECTABLE_NAME, INJECTABLE_TOKEN } from "../../Constants";
+import { APPLICATION_MODULES, INJECTABLE_NAME, INJECTABLE_TOKEN, PROTOTYPE_TOKEN } from "../../Constants";
 import { App } from "../../Interfaces/App/App.interface";
 import { getMetadata } from "./GetMetadata";
 

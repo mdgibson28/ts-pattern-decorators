@@ -15,8 +15,6 @@ describe("useApp", () => {
 
         useApp(TestApp);
 
-        expect(
-            globalThis[APPLICATION_TOKEN + getInjectableName(TestApp)]
-        ).toBeInstanceOf(TestApp);
+        expect(globalThis[APPLICATION_TOKEN]).toBeInstanceOf(TestApp);
     });
 });
