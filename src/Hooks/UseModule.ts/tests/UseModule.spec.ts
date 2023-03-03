@@ -38,4 +38,24 @@ describe("UseModule", () => {
         const module2 = useModule(TestModule);
         expect(module2.test).toEqual(module.test);
     });
+
+    it("should return the instance of a requested module when the module is lower in the tree than the entry point", () => {
+        @Module()
+        class TestSubModule {}
+
+        @Module({
+            modules: [TestSubModule],
+        })
+        class TestModule {}
+
+        @App({
+            selector: "app-root",
+            modules: [TestModule],
+        })
+        class TestApp {}
+
+        useApp(TestApp);
+
+        expect(useModule(TestSubModule)).toBeInstanceOf(TestSubModule);
+    });
 });

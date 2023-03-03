@@ -16,7 +16,11 @@ export function getInjectableName(target: Type): string {
     return getMetadata<string>(target, INJECTABLE_NAME);
 }
 
-export function getModule(target:Module|App, token:Type) {
-    const modules = getMetadata(target, APPLICATION_MODULES);
+export function getModule(target:Module|App, token:Type):any {
+    const modules = getModules(target);
     return modules[getInjectableName(token)];
+}
+
+export function getModules(target:Module|App):any {
+    return getMetadata(target, APPLICATION_MODULES);
 }

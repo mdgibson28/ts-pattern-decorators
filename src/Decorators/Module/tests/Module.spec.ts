@@ -19,7 +19,7 @@ describe("Module", () => {
         class TestModule {}
 
         const metadata = Reflect.getMetadata("providers", TestModule);
-        expect(metadata).toEqual([]);
+        expect(metadata).toEqual({});
     });
 
     it("should define metadata with providers", () => {
@@ -32,6 +32,6 @@ describe("Module", () => {
         class TestModule {}
 
         const metadata = Reflect.getMetadata("providers", TestModule);
-        expect(metadata).toEqual([TestService]);
+        expect(metadata).toEqual({"TestService": TestService});
     });
 });
