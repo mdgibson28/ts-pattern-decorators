@@ -1,4 +1,4 @@
-import { INJECTABLE_NAME, INJECTABLE_TOKEN, INJECTION_TYPE_PROVIDER } from "../../Constants";
+import { INJECTION_TYPE_PROVIDER } from "../../Constants";
 import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
 
 /**

@@ -1,5 +1,6 @@
 import { setModule } from "../../Helpers/Metadata";
-import { getInjectableName, getModules } from "../../Helpers/Metadata/GetMetadata";
+import { getInjectableName } from "../../Helpers/Metadata/GetMetadata";
+import { findModule } from "../../Helpers/Module";
 import { Module } from "../../Interfaces/Module/Module.interface";
 import { useApp } from "../UseApp";
 
@@ -24,23 +25,4 @@ export function useModule(token:Module) {
         setModule(prototype, token, value);
         return value;
     }
-}
-
-/**
- * Recursively searches the module tree from its root entry point and returns the matching module or undefined.
- * @param root 
- * @param token 
- * @returns 
- */
-function findModule(root:any, token:string):any {
-    const modules = getModules(root);
-    if(!modules) return undefined;  
-    if(modules[token]) return modules[token];
-
-    for(const moduleToken in modules) {
-        const subModule = findModule(modules[moduleToken], token);
-        if(subModule) return subModule;
-    }
-
-    return undefined;
 }
