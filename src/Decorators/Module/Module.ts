@@ -1,31 +1,15 @@
-import { INJECTABLE_NAME, INJECTABLE_TOKEN, INJECTION_TYPE_MODULE } from "../../Constants";
+import { INJECTION_TYPE_MODULE } from "../../Constants";
+import { setInjectableName, setInjectableToken, setMetadata } from "../../Helpers/Metadata";
 import { ModuleMetadata } from "../../Interfaces/Module/ModuleMetadata.interface";
 
 export function Module(metadata: ModuleMetadata = {}): ClassDecorator {
     return (prototype: Function):any => {
 
-        Reflect.defineMetadata(
-            INJECTABLE_TOKEN,
-            INJECTION_TYPE_MODULE,
-            prototype
-        );
-
-        Reflect.defineMetadata(
-            INJECTABLE_NAME,
-            prototype.name,
-            prototype
-        );
+        setInjectableToken(prototype, INJECTION_TYPE_MODULE);
+        setInjectableName(prototype, prototype.name);
 
         for (const property in metadata) {
-            if (
-                Object.prototype.hasOwnProperty.call(metadata, property)
-            ) {
-                Reflect.defineMetadata(
-                    property,
-                    metadata[property],
-                    prototype
-                );
-            }
+            setMetadata(prototype, property, metadata[property]);
         }
 
         return prototype;

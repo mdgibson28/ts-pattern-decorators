@@ -1,8 +1,17 @@
 import { Module } from "../Module";
 import { Provider } from "../../Provider";
 import "reflect-metadata";
+import { INJECTABLE_NAME } from "../../../Constants";
 
 describe("Module", () => {
+    it('should define an injectable name', () => {
+        @Module()
+        class TestModule {}
+
+        const metadata = Reflect.getMetadata(INJECTABLE_NAME, TestModule);
+        expect(metadata).toEqual("TestModule");
+    });
+
     it("should define metadata", () => {
         @Module({
             providers: [],
