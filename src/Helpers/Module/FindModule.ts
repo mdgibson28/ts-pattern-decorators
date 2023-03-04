@@ -12,7 +12,7 @@ export function findModule(root:any, token:string):any {
     if(modules[token]) return modules[token];
 
     for(const moduleToken in modules) {
-        const subModule = findModule(modules[moduleToken], token);
+        const subModule = findModule(modules[moduleToken].prototype, token);
         if(subModule) return subModule;
     }
 

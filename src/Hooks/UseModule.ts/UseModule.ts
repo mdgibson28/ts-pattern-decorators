@@ -1,4 +1,3 @@
-import { setModule } from "../../Helpers/Metadata";
 import { getInjectableName } from "../../Helpers/Metadata/GetMetadata";
 import { findModule } from "../../Helpers/Module";
 import { Module } from "../../Interfaces/Module/Module.interface";
@@ -15,14 +14,10 @@ import { useApp } from "../UseApp";
  */
 export function useModule(token:Module) {
     const {prototype} = useApp();
-    let value = findModule(prototype, getInjectableName(token));
+    const value = findModule(prototype, getInjectableName(token));
     if(!value) throw new Error('Module not found');
 
-    if (value instanceof token) {
-        return value;
-    } else {
-        value = new token();
-        setModule(prototype, token, value);
-        return value;
-    }
+    if (!value.instance) value.instance = new value.prototype();
+
+    return value.instance;
 }

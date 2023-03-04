@@ -2,6 +2,7 @@ import { Module } from "../Module";
 import { Provider } from "../../Provider";
 import "reflect-metadata";
 import { INJECTABLE_NAME } from "../../../Constants";
+import { getInjectableName } from "../../../Helpers/Metadata";
 
 describe("Module", () => {
     it('should define an injectable name', () => {
@@ -32,6 +33,6 @@ describe("Module", () => {
         class TestModule {}
 
         const metadata = Reflect.getMetadata("providers", TestModule);
-        expect(metadata).toEqual({"TestService": TestService});
+        expect(metadata[getInjectableName(TestService)].prototype).toEqual(TestService);
     });
 });

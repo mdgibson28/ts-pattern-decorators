@@ -9,7 +9,7 @@ export function mapDependencies(prototype:any, metadata:{}):void {
             setMetadata(prototype, property, metadata[property]);
         } else if(Array.isArray(metadata[property])) {
             const map = {};
-            for(const item of metadata[property]) map[getInjectableName(item)] = item;
+            for(const item of metadata[property]) map[getInjectableName(item)] = {prototype: item, instance: undefined};
             setMetadata(prototype, property, map);
         }
     }
