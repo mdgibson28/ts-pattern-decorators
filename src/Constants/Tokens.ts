@@ -8,6 +8,7 @@ export const INJECTABLE_NAME = "__TOKEN:INJECTABLE_NAME__";
 export const INJECTION_TYPE_APP = "app";
 export const INJECTION_TYPE_MODULE = "module";
 export const INJECTION_TYPE_PROVIDER = "provider";
+export const INJECTION_TYPE_PRESENTER = "presenter";
 export const PROVIDERS = "providers";
 export const INJECTION_TYPE_PAGE = "page";
 export const INJECTION_TYPE_GUARD = "guard";
