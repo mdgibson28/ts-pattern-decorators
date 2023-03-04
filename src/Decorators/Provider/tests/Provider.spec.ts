@@ -26,4 +26,6 @@ describe("Provider", () => {
         const metadata = Reflect.getMetadata(INJECTABLE_NAME, Test);
         expect(metadata).toEqual("Test");
     });
+
+    
 });
