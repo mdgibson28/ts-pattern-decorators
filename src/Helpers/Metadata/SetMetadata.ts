@@ -3,7 +3,6 @@ import { Module } from "../../Interfaces/Module/Module.interface";
 import { APPLICATION_MODULES, INJECTABLE_NAME, INJECTABLE_TOKEN, PROTOTYPE_TOKEN } from "../../Constants";
 import { App } from "../../Interfaces/App/App.interface";
 import { getMetadata } from "./GetMetadata";
-import { Type } from "../../Interfaces/Type.interface";
 import { Provider } from "../../Interfaces/Provider/Provider.interface";
 
 export function setMetadata(target: any, token: any, value: any):void {

@@ -17,7 +17,7 @@ describe("App", () => {
 
         useApp(TestApp);
 
-        expect(getModule(TestApp, TestModule)).toBe(TestModule);
+        expect(getModule(TestApp, TestModule).prototype).toBe(TestModule);
     });
 
     it("should mount two injected modules", () => {
@@ -35,7 +35,7 @@ describe("App", () => {
 
         useApp(TestApp);
 
-        expect(getModule(TestApp, TestModule)).toBe(TestModule);
-        expect(getModule(TestApp, TestModule2)).toBe(TestModule2);
+        expect(getModule(TestApp, TestModule).prototype).toBe(TestModule);
+        expect(getModule(TestApp, TestModule2).prototype).toBe(TestModule2);
     });
 });
