@@ -9,7 +9,7 @@ import { PresenterDependencies } from "../../Interfaces/Presenter/PresenterDepen
  * The purpose of this concept is to decouple the application from the UI rendering agent.
  * @param dependencies  
  */
-export function Presenter(dependencies:PresenterDependencies): ClassDecorator {
+export function Presenter(dependencies:PresenterDependencies = {}): ClassDecorator {
     return (prototype) => {
         setInjectableName(prototype, prototype.name);
         setInjectableToken(prototype, INJECTION_TYPE_PRESENTER);

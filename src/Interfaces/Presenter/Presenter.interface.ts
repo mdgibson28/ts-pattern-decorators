@@ -1,3 +1,5 @@
 import { Type } from "../Type.interface";
 
-export type Presenter = Type<any>;
+export interface Presenter extends Type {
+    mount: () => void;   
+}

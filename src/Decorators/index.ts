@@ -7,3 +7,4 @@ export * from "./App";
 export * from "./Module";
 export * from "./Provider";
 export * from './Presenter';
+export * from './Route';
