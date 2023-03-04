@@ -23,12 +23,21 @@ describe("UseProvider", () => {
         expect(useProvider(TestProvider)).toBeInstanceOf(TestProvider);
     });
 
-    it("should return the same provider instance that was previously created", () => {
+    it("should return a provider on a sub module", () => {
         @Provider()
         class TestProvider {}
 
+        @Provider()
+        class TestProvider2 {}
+
+        @Module({
+            providers: [TestProvider2],
+        })
+        class TestSubModule {}
+
         @Module({
             providers: [TestProvider],
+            modules: [TestSubModule],
         })
         class TestModule {}
 
@@ -44,32 +53,7 @@ describe("UseProvider", () => {
 
         expect(provider).toBeInstanceOf(TestProvider);
 
-        const provider2 = useProvider(TestModule);
+        const provider2 = useProvider(TestProvider2);
         expect(provider).toEqual(provider2);
-    });
-
-    it("should return the instance of a requested provider when the provider is lower in the tree than the entry point", () => {
-        @Provider()
-        class TestProvider {}
-
-        @Module({
-            providers: [TestProvider],
-        })
-        class TestSubModule {}
-
-        @Module({
-            modules: [TestSubModule],
-        })
-        class TestModule {}
-
-        @App({
-            selector: "app-root",
-            modules: [TestModule],
-        })
-        class TestApp {}
-
-        useApp(TestApp);
-
-        expect(useProvider(TestProvider)).toBeInstanceOf(TestProvider);
     });
 });

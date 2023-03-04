@@ -24,13 +24,13 @@ export function useProvider(token:Provider) {
  */
 function findProvider(root:any, token:string):any {
     const providers = getProviders(root);
-    if(!providers) return undefined;  
-    if(providers[token]) return providers[token];
+    if(providers && providers[token]) return providers[token];
 
-    const modules = getModules(root);
+    const subModules = getModules(root);
+    if(!subModules) return undefined;
     
-    for(const moduleToken in modules) {
-        const subProvider = findProvider(modules[moduleToken], token);
+    for(const moduleToken in subModules) {
+        const subProvider = findProvider(subModules[moduleToken], token);
         if(subProvider) return subProvider;
     }
 
