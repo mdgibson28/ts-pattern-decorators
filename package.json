@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.34.0",
     "eslint-plugin-tsdoc": "^0.2.17",
+    "hygen": "^6.2.11",
     "jest": "^29.4.2",
     "rimraf": "^4.1.2",
     "rollup": "^2.79.1",
@@ -54,7 +55,8 @@
     "publish:patch": "npm run publish:pre && npm version patch && npm run publish:finish",
     "publish:minor": "npm run publish:pre && npm version minor && npm run publish:finish",
     "publish:major": "npm run publish:pre && npm version major && npm run publish:finish",
-    "publish:pre": "npm run build && npm run docs && git add docs/ && git commit -m \"docs: update docs\""
+    "publish:pre": "npm run build && npm run docs && git add docs/ && git commit -m \"docs: update docs\"",
+    "generate:ClassDecorator": "hygen ClassDecorator with-prompt"
   },
   "repository": {
     "type": "git",

@@ -6,3 +6,4 @@ export * from "./Singleton";
 export * from "./App";
 export * from "./Module";
 export * from "./Provider";
+export * from './Presenter';

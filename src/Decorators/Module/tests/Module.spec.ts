@@ -5,6 +5,10 @@ import { INJECTABLE_NAME } from "../../../Constants";
 import { getInjectableName } from "../../../Helpers/Metadata";
 
 describe("Module", () => {
+    it("should be defined", () => {
+        expect(Module).toBeDefined();
+    });
+    
     it('should define an injectable name', () => {
         @Module()
         class TestModule {}
