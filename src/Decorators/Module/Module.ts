@@ -1,14 +1,31 @@
 import { INJECTION_TYPE_MODULE } from "../../Constants";
 import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
-import { mapTypeMetadata } from "../../Helpers/Metadata/MapMetadata";
-import { ModuleMetadata } from "../../Interfaces/Module/ModuleMetadata.interface";
+import { mapDependencies } from "../../Helpers/Metadata/MapMetadata";
+import { Module } from "../../Interfaces/Module/Module.interface";
+import { ModuleDependencies } from "../../Interfaces/Module/ModuleDependencies.interface";
 
-export function Module(metadata: ModuleMetadata = {}): ClassDecorator {
-    return (prototype: Function):any => {
+/*
+Module prototype metadata:
+    providers: {
+        [key: string]: {
+            prototype: ProviderPrototype;
+            instance: Provider;
+        };
+    }
+    modules: {
+        [key: string]: {
+            prototype: ModulePrototype;
+            instance: Module;
+        };
+    }
+ */
+
+export function Module(dependencies: ModuleDependencies = {}): ClassDecorator {
+    return (prototype) => {
 
         setInjectableToken(prototype, INJECTION_TYPE_MODULE);
         setInjectableName(prototype, prototype.name);
-        mapTypeMetadata(prototype, metadata);
+        mapDependencies(prototype, dependencies);
 
         return prototype;
     };

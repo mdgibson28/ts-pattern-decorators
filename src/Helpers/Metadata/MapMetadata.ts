@@ -3,7 +3,7 @@ import { setMetadata } from './SetMetadata';
 import { getInjectableName } from './GetMetadata';
 ;
 
-export function mapTypeMetadata(prototype:any, metadata:{}):void {
+export function mapDependencies(prototype:any, metadata:{}):void {
     for (const property in metadata) {
         if (!Array.isArray(metadata[property])) {
             setMetadata(prototype, property, metadata[property]);

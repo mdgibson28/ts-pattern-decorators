@@ -1,3 +1,3 @@
-import { InjectionToken } from "../InjectionToken.interface";
+import { Type } from "../Type.interface";
 
-export type Provider = InjectionToken;
+export type Provider = Type<any>;
