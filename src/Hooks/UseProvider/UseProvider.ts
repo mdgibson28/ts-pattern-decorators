@@ -1,4 +1,4 @@
-import { getInjectableName, getModules, getProviders, setProvider } from "../../Helpers/Metadata";
+import { getInjectableName, getInjectableToken, getModules, getProviders, setProvider } from "../../Helpers/Metadata";
 import { Provider } from "../../Interfaces/Provider/Provider.interface";
 import { useApp } from "../UseApp";
 
@@ -24,6 +24,7 @@ export function useProvider(token:Provider) {
  */
 function findProvider(root:any, token:string):any {
     const providers = getProviders(root);
+    if(!providers) return undefined;  
     if(providers[token]) return providers[token];
 
     const modules = getModules(root);
