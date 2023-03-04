@@ -1,3 +1,5 @@
-export interface RouteDependencies {
-    path: string;
+import { RouterState } from "@remix-run/router";
+
+export interface RouteDependencies extends RouterState {
+
 }
