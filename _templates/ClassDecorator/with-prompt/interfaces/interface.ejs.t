@@ -1,5 +1,5 @@
 ---
-to: src/Interfaces/<%= h.changeCase.pascalCase(h.changeCase.param(name))  %>/<%= h.changeCase.pascalCase(name)  %>.ts
+to: src/Interfaces/<%= h.changeCase.pascalCase(h.changeCase.param(name))  %>/<%= h.changeCase.pascalCase(name)  %>.interface.ts
 ---
 
 import { Type } from "../Type.interface";
