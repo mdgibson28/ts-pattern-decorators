@@ -6,7 +6,7 @@ import { AppMetadata } from "../../Interfaces/App/AppMetadata.interface";
 export function App(metadata: AppMetadata): ClassDecorator {
     return (prototype) => {
         setInjectableMetadata(prototype, INJECTION_TYPE_APP);
-        mapDependencies(prototype, { modules: metadata.modules});
+        mapDependencies(prototype, { modules: metadata.modules, providers: metadata.providers, routes: metadata.routes });
         setMetadata(prototype, PLUGINS_TOKEN, metadata.plugins);
 
         return prototype;

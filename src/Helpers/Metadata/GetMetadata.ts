@@ -21,11 +21,26 @@ export function getModule(target:ModuleType|AppType, token:Type):any {
     return modules[getInjectableName(token)];
 }
 
-export function getModules(target:ModuleType|AppType):any {
+export function getModules(target:AppType|ModuleType):any {
     return getMetadata(target, MODULES_TOKEN);
 }
 
-export function getProviders(target:ModuleType):any {
+export function getProvider(target:AppType|ModuleType, token:Type):any {
+    const providers = getProviders(target);
+    return providers[getInjectableName(token)];
+}
+
+export function getProviders(target:AppType|ModuleType):any {
     return getMetadata(target, PROVIDERS_TOKEN);
 }
+
+export function getRoute(target:AppType|ModuleType, token:Type):any {
+    const routes = getRoutes(target);
+    return routes[getInjectableName(token)];
+}
+
+export function getRoutes(target:AppType|ModuleType):any {
+    return getMetadata(target, PROVIDERS_TOKEN);
+}
+
 
