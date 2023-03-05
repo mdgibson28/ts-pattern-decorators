@@ -9,7 +9,7 @@ describe("useApp", () => {
         @Module()
         class TestModule {}
 
-        @App({ selector: "app-root", modules: [TestModule] })
+        @App({ modules: [TestModule] })
         class TestApp {}
 
         useApp(TestApp);

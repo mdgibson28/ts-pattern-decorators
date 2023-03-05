@@ -12,7 +12,6 @@ describe("App", () => {
         class TestModule {}
 
         @App({
-            selector: "app-root",
             modules: [TestModule],
         })
         class TestApp extends AbstractApp {}
@@ -30,7 +29,6 @@ describe("App", () => {
         class TestModule2 {}
 
         @App({
-            selector: "app-root",
             modules: [TestModule, TestModule2],
         })
         class TestApp extends AbstractApp {}
@@ -49,7 +47,6 @@ describe("App", () => {
         }
 
         @App({
-            selector: "app-root",
             plugins: [new TestPlugin()],
         })
         class TestApp extends AbstractApp {}
