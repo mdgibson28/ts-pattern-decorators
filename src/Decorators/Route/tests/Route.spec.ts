@@ -1,7 +1,6 @@
 import { Route } from "../Route";
-import { Provider } from "../../Provider";
 import "reflect-metadata";
-import { INJECTABLE_NAME, PRESENTER_TOKEN, STATE_TOKEN } from "../../../Constants";
+import { ROUTE_CONFIG_TOKEN, INJECTABLE_NAME, PRESENTER_TOKEN } from "../../../Constants";
 import { getMetadata } from "../../../Helpers/Metadata";
 import { Presenter } from "../../Presenter";
 
@@ -15,7 +14,7 @@ describe("Module", () => {
         class TestPresenter {}
 
         @Route({
-            state: {
+            config: {
                 path: "/"
             },
             presenter: TestPresenter
@@ -31,7 +30,7 @@ describe("Module", () => {
         class TestPresenter {}
 
         @Route({
-            state: {
+            config: {
                 path: "/"
             },
             presenter: TestPresenter
@@ -41,7 +40,7 @@ describe("Module", () => {
         const presenterMetadata = getMetadata(TestRoute, PRESENTER_TOKEN);
         expect(presenterMetadata).toEqual(TestPresenter);
         
-        const stateMetadata = getMetadata(TestRoute, STATE_TOKEN);
+        const stateMetadata = getMetadata(TestRoute, ROUTE_CONFIG_TOKEN);
         expect(stateMetadata).toEqual({ path: "/" });
     });
 });

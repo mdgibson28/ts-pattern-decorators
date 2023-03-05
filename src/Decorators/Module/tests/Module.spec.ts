@@ -27,19 +27,6 @@ describe("Module", () => {
         expect(metadata).toEqual({});
     });
 
-    it("should define metadata with providers", () => {
-        @Provider()
-        class TestService {}
-
-        @Module({
-            providers: [TestService],
-        })
-        class TestModule {}
-
-        const metadata = getMetadata(TestModule, PROVIDERS_TOKEN);
-        expect(metadata[getInjectableName(TestService)].prototype).toEqual(TestService);
-    });
-
     it("should define metadata with a sub module", () => {
         @Module()
         class TestSubModule {}
@@ -51,5 +38,18 @@ describe("Module", () => {
 
         const metadata = getMetadata(TestModule, MODULES_TOKEN);
         expect(metadata[getInjectableName(TestSubModule)].prototype).toEqual(TestSubModule);
+    });
+
+    it("should define metadata with providers", () => {
+        @Provider()
+        class TestService {}
+
+        @Module({
+            providers: [TestService],
+        })
+        class TestModule {}
+
+        const metadata = getMetadata(TestModule, PROVIDERS_TOKEN);
+        expect(metadata[getInjectableName(TestService)].prototype).toEqual(TestService);
     });
 });

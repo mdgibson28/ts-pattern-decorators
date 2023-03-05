@@ -3,6 +3,8 @@ import { Module } from "../../../Decorators";
 import { App } from "../App";
 import "reflect-metadata";
 import { getModule } from "../../../Helpers/Metadata/GetMetadata";
+import { Plugin } from "../../../Interfaces/Plugins/Plugin.interface";
+import { AbstractApp } from "../../../Interfaces/App/App.abstract";
 
 describe("App", () => {
     it("should mount an injected module", () => {
@@ -13,7 +15,7 @@ describe("App", () => {
             selector: "app-root",
             modules: [TestModule],
         })
-        class TestApp {}
+        class TestApp extends AbstractApp {}
 
         useApp(TestApp);
 
@@ -31,11 +33,29 @@ describe("App", () => {
             selector: "app-root",
             modules: [TestModule, TestModule2],
         })
-        class TestApp {}
+        class TestApp extends AbstractApp {}
 
         useApp(TestApp);
 
         expect(getModule(TestApp, TestModule).prototype).toBe(TestModule);
         expect(getModule(TestApp, TestModule2).prototype).toBe(TestModule2);
+    });
+
+    it("should register a plugin", () => {
+        const register = jest.fn();
+
+        class TestPlugin implements Plugin {
+            public register = register;
+        }
+
+        @App({
+            selector: "app-root",
+            plugins: [new TestPlugin()],
+        })
+        class TestApp extends AbstractApp {}
+
+        useApp(TestApp);
+
+        expect(register).toBeCalled();
     });
 });

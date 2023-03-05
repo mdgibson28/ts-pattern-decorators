@@ -1,7 +1,7 @@
-import { AgnosticRouteObject } from "@remix-run/router";
 import { PresenterType } from "../Presenter/Presenter.type";
+import { RouteConfig } from "./RouteConfig.interface";
 
 export interface RouteDependencies {
-    state: AgnosticRouteObject; 
+    config?:RouteConfig;
     presenter: PresenterType
 }
