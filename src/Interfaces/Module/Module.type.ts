@@ -1,3 +1,3 @@
 import { Type } from "../Type.interface";
 
-export type Page = Type<any>
+export type ModuleType = Type<any>;

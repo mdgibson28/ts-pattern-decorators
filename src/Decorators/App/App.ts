@@ -1,7 +1,7 @@
 import { INJECTION_TYPE_APP } from "../../Constants";
 import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
 import { mapDependencies } from "../../Helpers/Metadata/MapMetadata";
-import { App } from "../../Interfaces/App/App.interface";
+import { AppType } from "../../Interfaces/App/App.type";
 import { AppMetadata } from "../../Interfaces/App/AppMetadata.interface";
 
 export function App(metadata: AppMetadata): ClassDecorator {

@@ -1,8 +1,8 @@
-import { Provider } from "../Provider/Provider.interface";
-import { Module } from "./Module.interface";
+import { ProviderType } from "../Provider/Provider.type";
+import { ModuleType } from "./Module.type";
 
 export interface ModuleDependencies {
-    providers?: Provider[];
-    modules?: Module[];
+    providers?: ProviderType[];
+    modules?: ModuleType[];
     
 }

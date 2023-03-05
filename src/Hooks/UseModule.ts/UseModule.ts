@@ -1,6 +1,6 @@
 import { getInjectableName } from "../../Helpers/Metadata/GetMetadata";
 import { findModule } from "../../Helpers/Module";
-import { Module } from "../../Interfaces/Module/Module.interface";
+import { ModuleType } from "../../Interfaces/Module/Module.type";
 import { useApp } from "../UseApp";
 
 /**
@@ -12,7 +12,7 @@ import { useApp } from "../UseApp";
  * @param token 
  * @returns 
  */
-export function useModule(token:Module) {
+export function useModule(token:ModuleType) {
     const {prototype} = useApp();
     const value = findModule(prototype, getInjectableName(token));
     if(!value) throw new Error('Module not found');

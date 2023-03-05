@@ -1,9 +1,9 @@
 import { getInjectableName, setProvider } from "../../Helpers/Metadata";
 import { findProvider } from "../../Helpers/Provider";
-import { Provider } from "../../Interfaces/Provider/Provider.interface";
+import { ProviderType } from "../../Interfaces/Provider/Provider.type";
 import { useApp } from "../UseApp";
 
-export function useProvider(token:Provider) {
+export function useProvider(token:ProviderType) {
     const {prototype} = useApp();
     let value = findProvider(prototype, getInjectableName(token));
     if(!value) throw new Error('Module not found');

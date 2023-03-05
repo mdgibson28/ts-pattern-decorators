@@ -1,7 +1,7 @@
 import { APPLICATION_CLASS, APPLICATION_TOKEN } from "../../Constants";
-import { App } from "../../Interfaces/App/App.interface";
+import { AppType } from "../../Interfaces/App/App.type";
 
-export function useApp(token?: App): { app: App; prototype: any } {
+export function useApp(token?: AppType): { app: AppType; prototype: any } {
     if (token) {
         globalThis[APPLICATION_TOKEN] = new token();
         globalThis[APPLICATION_CLASS] = token;
