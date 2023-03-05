@@ -16,6 +16,11 @@ export function setInjectableName(target: any, value: string):void {
     setMetadata(target, INJECTABLE_NAME, value);
 }
 
+export function setInjectableMetadata(target:{name:string}, injectionType:string):void {
+    setInjectableToken(target, injectionType);
+    setInjectableName(target, target.name);
+}
+
 export function setModule(target: AppType | ModuleType, token: ModuleType, value: any):void {
     const key:string = getMetadata(token, INJECTABLE_NAME)
     const modules = getMetadata(target, MODULES_TOKEN) || {};

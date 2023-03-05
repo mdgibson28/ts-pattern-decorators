@@ -1,4 +1,3 @@
-import 'reflect-metadata';import { Type } from '../../Interfaces/Type.interface';
 import { setMetadata } from './SetMetadata';
 import { getInjectableName } from './GetMetadata';
 ;

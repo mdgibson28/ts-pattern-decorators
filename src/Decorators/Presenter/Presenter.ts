@@ -1,5 +1,5 @@
 import { INJECTION_TYPE_PRESENTER } from "../../Constants";
-import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
+import { setInjectableMetadata } from "../../Helpers/Metadata";
 import { mapDependencies } from "../../Helpers/Metadata/MapMetadata";
 import { PresenterDependencies } from "../../Interfaces/Presenter/PresenterDependencies.interface";
 
@@ -11,8 +11,7 @@ import { PresenterDependencies } from "../../Interfaces/Presenter/PresenterDepen
  */
 export function Presenter(dependencies:PresenterDependencies = {}): ClassDecorator {
     return (prototype) => {
-        setInjectableName(prototype, prototype.name);
-        setInjectableToken(prototype, INJECTION_TYPE_PRESENTER);
+        setInjectableMetadata(prototype, INJECTION_TYPE_PRESENTER);
         mapDependencies(prototype, dependencies);
 
         return prototype;

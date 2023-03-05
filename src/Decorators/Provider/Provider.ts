@@ -1,5 +1,5 @@
 import { INJECTION_TYPE_PROVIDER } from "../../Constants";
-import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
+import { setInjectableMetadata } from "../../Helpers/Metadata";
 
 /**
  * Decorate that marks class as a Provider.
@@ -8,8 +8,7 @@ import { setInjectableName, setInjectableToken } from "../../Helpers/Metadata";
  */
 export function Provider(): ClassDecorator {
     return (prototype) => {
-        setInjectableName(prototype, prototype.name);
-        setInjectableToken(prototype, INJECTION_TYPE_PROVIDER);
+        setInjectableMetadata(prototype, INJECTION_TYPE_PROVIDER);
 
         return prototype;
     };

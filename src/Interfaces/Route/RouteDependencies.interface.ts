@@ -1,7 +1,7 @@
-import { RouterState } from "@remix-run/router";
+import { AgnosticRouteObject } from "@remix-run/router";
 import { PresenterType } from "../Presenter/Presenter.type";
 
-export interface RouteDependencies extends RouterState {
-    state: RouterState,
+export interface RouteDependencies {
+    state: AgnosticRouteObject; 
     presenter: PresenterType
 }

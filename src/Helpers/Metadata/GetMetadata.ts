@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { MODULES_TOKEN, INJECTABLE_NAME, PROVIDERS } from '../../Constants';
+import { MODULES_TOKEN, INJECTABLE_NAME, PROVIDERS_TOKEN } from '../../Constants';
 import { AppType } from '../../Interfaces/App/App.type';
 import { ModuleType } from '../../Interfaces/Module/Module.type';
 import { Type } from '../../Interfaces/Type.interface';
@@ -26,6 +26,6 @@ export function getModules(target:ModuleType|AppType):any {
 }
 
 export function getProviders(target:ModuleType):any {
-    return getMetadata(target, PROVIDERS);
+    return getMetadata(target, PROVIDERS_TOKEN);
 }
 
