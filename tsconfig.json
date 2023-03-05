@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "jsx": "react",
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "declaration": true,
@@ -13,7 +14,8 @@
       "isolatedModules": true,
       "declarationDir": "dist",
       "lib": [
-        "ES2015"
+        "ES2015",
+        "DOM"
       ]
     },
     "files": [
@@ -21,7 +23,7 @@
     ],
     "include": [
       "src/**/*.ts"
-    ],
+, "src/Plugins/RemixRouter/RemixRouterReactDom.tsx"    ],
     "rootDirs": [
       "src/"
     ]
