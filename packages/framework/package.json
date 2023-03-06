@@ -1,0 +1,62 @@
+{
+  "name": "@thesmitchuation/framework",
+  "version": "0.0.5",
+  "description": "Software design patterns implemented with Typescript decorators",
+  "keywords": [
+    "typescript",
+    "design patterns",
+    "decorators"
+  ],
+  "source": "src/index.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "rollup": "^2.79.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-loader": "^9.4.1",
+    "typedoc": "^0.23.25"
+  },
+  "scripts": {
+    "bundle": "rollup -c",
+    "bundle:pre": "npm run test:silent && npm run clean",
+    "build": "npm run bundle:pre && npm run bundle",
+    "clean": "rimraf dist && rimraf docs",
+    "docs": "npx typedoc src/index.ts",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:silent": "npm run test:lint:silent && npm run test:unit:silent",
+    "test:unit": "jest",
+    "test:unit:silent": "jest --silent --no-coverage --bail",
+    "test:lint": "eslint ./src/index.ts",
+    "test:lint:silent": "eslint ./src/index.ts --quiet",
+    "publish:finish": "npm publish && git push --tags",
+    "publish:patch": "npm run publish:pre && npm version patch && npm run publish:finish",
+    "publish:minor": "npm run publish:pre && npm version minor && npm run publish:finish",
+    "publish:major": "npm run publish:pre && npm version major && npm run publish:finish",
+    "publish:pre": "npm run build && npm run docs && git add docs/ && git commit -m \"docs: update docs\"",
+    "generate:ClassDecorator": "hygen ClassDecorator with-prompt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdgibson28/ts-pattern-decorators.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdgibson28/ts-pattern-decorators/issues"
+  },
+  "homepage": "https://github.com/mdgibson28/ts-pattern-decorators/issues#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}

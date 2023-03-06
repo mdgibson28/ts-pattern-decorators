@@ -1,29 +1,27 @@
 {
-    "compilerOptions": {
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "declaration": true,
-      "noImplicitAny": false,
-      "module": "es6",
-      "target": "es5",
-      "allowJs": true,
-      "moduleResolution": "node",
-      "experimentalDecorators": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "declarationDir": "dist",
-      "lib": [
-        "ES2015"
-      ]
-    },
-    "files": [
-      "src/index.ts"
-    ],
-    "include": [
-      "src/**/*.ts"
-, "extras/Plugins/RemixRouter/RemixRouterReactDom.ts", "src/Hooks/UseModule"    ],
-    "rootDirs": [
-      "src/"
-    ]
-  }
-  
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "target": "es5",
+    "module": "es6",
+    "allowJs": true,
+    "declaration": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src",
+    "outDir": "./build"
+  },
+  "files": [
+  ],
+  "references": [
+    {
+      "path": "./packages/framework"
+    }
+  ]
+}
