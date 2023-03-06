@@ -21,7 +21,7 @@
     ],
     "include": [
       "src/**/*.ts"
-, "extras/Plugins/RemixRouter/RemixRouterReactDom.tsx"    ],
+, "extras/Plugins/RemixRouter/RemixRouterReactDom.ts", "src/Hooks/UseModule"    ],
     "rootDirs": [
       "src/"
     ]
