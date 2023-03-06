@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "name": "ROOT",
+            "path": "../"
+        },
+        {
+            "name": "packages/framework",
+            "path": "../packages/framework"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "node_modules/": true,
+            "packages/": true
+        },
+        "jest.autoEnable": false,
+        "jest.disabledWorkspaceFolders": ["ROOT"]
+    }
+}
