@@ -1,2 +1,6 @@
 {
+    "jest.debugMode": false,
+    "jest.disabledWorkspaceFolders": [
+        "ROOT"
+    ]
 }

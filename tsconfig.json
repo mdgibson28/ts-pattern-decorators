@@ -8,6 +8,7 @@
     "declaration": true,
     "strict": true,
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -19,9 +20,7 @@
   },
   "files": [
   ],
-  "references": [
-    {
-      "path": "./packages/framework"
-    }
-  ]
+  "paths": {
+    "~/*": ["./packages/*/src/*"]
+  }
 }

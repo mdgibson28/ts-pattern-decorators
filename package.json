@@ -24,6 +24,12 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "package:new": "npm init --scope @thesmitchuation --workspace ./packages/change-me -y"
+    "package:new": "npm init --scope @thesmitchuation --workspace ./packages/change-me -y",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:silent": "npm run test:lint:silent && npm run test:unit:silent",
+    "test:unit": "jest",
+    "test:unit:silent": "jest --silent --no-coverage --bail",
+    "test:lint": "eslint ./src/index.ts",
+    "test:lint:silent": "eslint ./src/index.ts --quiet"
   }
 }
