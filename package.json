@@ -69,10 +69,6 @@
   },
   "homepage": "https://github.com/mdgibson28/ts-pattern-decorators/issues#readme",
   "dependencies": {
-    "localforage": "^1.10.0",
-    "match-sorter": "^6.3.1",
-    "react-router-dom": "^6.8.2",
-    "reflect-metadata": "^0.1.13",
-    "sort-by": "^1.2.0"
+    "reflect-metadata": "^0.1.13"
   }
 }

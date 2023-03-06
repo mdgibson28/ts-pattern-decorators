@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-      "jsx": "react",
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "declaration": true,
@@ -14,8 +13,7 @@
       "isolatedModules": true,
       "declarationDir": "dist",
       "lib": [
-        "ES2015",
-        "DOM"
+        "ES2015"
       ]
     },
     "files": [
