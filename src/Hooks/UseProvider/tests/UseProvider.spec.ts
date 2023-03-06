@@ -13,7 +13,6 @@ describe("UseProvider", () => {
         class TestModule {}
 
         @App({
-            selector: "app-root",
             modules: [TestModule],
         })
         class TestApp {}
@@ -42,7 +41,6 @@ describe("UseProvider", () => {
         class TestModule {}
 
         @App({
-            selector: "app-root",
             modules: [TestModule],
         })
         class TestApp {}

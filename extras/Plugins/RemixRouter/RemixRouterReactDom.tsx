@@ -1,20 +1,11 @@
-import { RouterPlugin } from "../../Interfaces/Plugins/Router/RouterPlugin.abstract";
-import { RouterPluginConfig } from "../../Interfaces/Plugins/Router/RouterPluginConfig.interface";
+import { RouterPlugin } from "../../../src/Interfaces/Plugins/Router/RouterPlugin.abstract";
+import { RouterPluginConfig } from "../../../src/Interfaces/Plugins/Router/RouterPluginConfig.interface";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { getMetadata } from "../../Helpers/Metadata";
-import { ROUTE_CONFIG_TOKEN } from "../../Constants";
-
-/**
- * @interface RemixRouterReactDomConfig
- * @description React Router DOM Plugin Config
- * @extends RouterPluginConfig
- */
-export interface RemixRouterReactDomConfig extends RouterPluginConfig {
-    attachTo: HTMLElement;
-}
+import { getMetadata } from "../../../src/Helpers/Metadata";
+import { ROUTE_CONFIG_TOKEN } from "../../../src/Constants";
 
 /**
  * @class RemixRouterReactDom
@@ -23,7 +14,7 @@ export interface RemixRouterReactDomConfig extends RouterPluginConfig {
  * @param {RemixRouterReactDomConfig} config
  */
 export class RemixRouterReactDom extends RouterPlugin {
-    constructor(protected config: RemixRouterReactDomConfig) {
+    constructor(protected config: any) {
         super(config);
     }
 
