@@ -6,7 +6,6 @@
     "module": "es6",
     "allowJs": true,
     "declaration": true,
-    "strict": true,
     "moduleResolution": "node",
     "noImplicitAny": false,
     "experimentalDecorators": true,
@@ -16,7 +15,8 @@
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
-    "outDir": "./build"
+    "outDir": "./build",
+    "strictPropertyInitialization": false
   },
   "files": [
   ],
